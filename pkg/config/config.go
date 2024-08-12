@@ -3,35 +3,35 @@ package config
 import "github.com/kyverno/policy-reporter/pkg/target"
 
 type ValueFilter struct {
-	Include []string `mapstructure:"include"`
-	Exclude []string `mapstructure:"exclude"`
+	Include []string `mapstructure:"include" json:"include,omitempty"`
+	Exclude []string `mapstructure:"exclude" json:"exclude,omitempty"`
 }
 
 type EmailReportFilter struct {
-	DisableClusterReports bool        `mapstructure:"disableClusterReports"`
-	Namespaces            ValueFilter `mapstructure:"namespaces"`
-	Sources               ValueFilter `mapstructure:"sources"`
+	DisableClusterReports bool        `mapstructure:"disableClusterReports" json: "disableClusterReports,omitempty"`
+	Namespaces            ValueFilter `mapstructure:"namespaces" json:"namespaces,omitempty"`
+	Sources               ValueFilter `mapstructure:"sources" json:"sources,omitempty"`
 }
 
 type TargetFilter struct {
-	Namespaces   ValueFilter `mapstructure:"namespaces"`
-	Priorities   ValueFilter `mapstructure:"priorities"`
-	Policies     ValueFilter `mapstructure:"policies"`
-	ReportLabels ValueFilter `mapstructure:"reportLabels"`
+	Namespaces   ValueFilter `mapstructure:"namespaces" json:"namespaces,omitempty"`
+	Priorities   ValueFilter `mapstructure:"priorities" json:"priorities,omitempty"`
+	Policies     ValueFilter `mapstructure:"policies" json:"policies,omitempty"`
+	ReportLabels ValueFilter `mapstructure:"reportLabels" json:"reportLabels,omitempty"`
 }
 
 type MetricsFilter struct {
-	Namespaces ValueFilter `mapstructure:"namespaces"`
-	Policies   ValueFilter `mapstructure:"policies"`
-	Severities ValueFilter `mapstructure:"severities"`
-	Status     ValueFilter `mapstructure:"status"`
-	Sources    ValueFilter `mapstructure:"sources"`
-	Kinds      ValueFilter `mapstructure:"kinds"`
+	Namespaces ValueFilter `mapstructure:"namespaces" json:"namespaces,omitempty"`
+	Policies   ValueFilter `mapstructure:"policies" json:"policies,omitempty"`
+	Severities ValueFilter `mapstructure:"severities" json:"severities,omitempty"`
+	Status     ValueFilter `mapstructure:"status" json:"status,omitempty"`
+	Sources    ValueFilter `mapstructure:"sources" json:"sources,omitempty"`
+	Kinds      ValueFilter `mapstructure:"kinds" json: "kinds,omitempty"`
 }
 
 type TargetBaseOptions struct {
-	Name            string            `mapstructure:"name"`
-	MinimumPriority string            `mapstructure:"minimumPriority"`
+	Name            string            `mapstructure:"name" json:"name,omitempty"`
+	MinimumPriority string            `mapstructure:"minimumPriority" json: "minimumPriority,omitempty"`
 	Filter          TargetFilter      `mapstructure:"filter"`
 	SecretRef       string            `mapstructure:"secretRef"`
 	MountedSecret   string            `mapstructure:"mountedSecret"`
