@@ -37,7 +37,7 @@ type TargetBaseOptions struct {
 	MountedSecret   string            `mapstructure:"mountedSecret" json:"mountedSecret,omitempty"`
 	Sources         []string          `mapstructure:"sources" json:"sources,omitempty"`
 	CustomFields    map[string]string `mapstructure:"customFields" json:"customFields,omitempty"`
-	SkipExisting    bool              `mapstructure:"skipExistingOnStartup", json:"skipExistingOnStartup,omitempty"`
+	SkipExisting    bool              `mapstructure:"skipExistingOnStartup" json:"skipExistingOnStartup,omitempty"`
 }
 
 func (config *TargetBaseOptions) MapBaseParent(parent TargetBaseOptions) {
